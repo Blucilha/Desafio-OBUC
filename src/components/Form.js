@@ -4,7 +4,7 @@ import '../App.css';
 
 const RANGE_BUILDING = [1, 2, 3, 4];
 
-function Form(){
+function FormAddInfo(){
     const { workPlaces, setWorkPlaces } = useContext(myContext);
 
     const [onSelect, setOnSelect] = useState('');
@@ -77,4 +77,4 @@ function Form(){
     )
 }
 
-export default Form;
+export default FormAddInfo;

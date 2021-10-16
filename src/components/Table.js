@@ -1,41 +1,49 @@
-import React, { useEffect, useState } from "react";
-import './Table.css';
-import Form from "./Form";
+import React, { useContext, useState } from "react";
+import Table from 'react-bootstrap/Table'
+import FormAddInfo from "./Form";
+import myContext from "../context/CreateContext";
 
-function Table(){
-    const arrLocaisTrabalho = sessionStorage.getItem('arrLocaisTrabalho');
-    const getWorkPlacesJson = JSON.parse(arrLocaisTrabalho);
+function TableWorkPlace(){
+    const { workPlaces, setWorkPlaces } = useContext(myContext);
 
-    const [info, setInfo] = useState(getWorkPlacesJson);
+    const clickBtnDelete = (index) => {
+        const deleteWorkPlace = workPlaces.filter((element, ind) => {
+                if(ind !== index) {
+                    return element
+                }
+            });
+        setWorkPlaces(deleteWorkPlace); 
+    }
 
     const createRowsTable = () => {
-        if(info.length === 0) {
+        if(workPlaces.length === 0) {
             return (
                 <p>Sem dados disponíveis</p>
             )
         }
-        return info.map((element, index) => {
+        return workPlaces.map((element, index) => {
             return (
                 <tr key={index}>
                     <td>{ element.building }</td>
                     <td>{ element.workPlace }</td>
                     <td>
-                        <button>a</button>
-                        <button>b</button>
+                        <button>edit</button>
+                        <button
+                            type='button'
+                            onClick={ () => clickBtnDelete(index) }
+                        >
+                            del
+                        </button>
                     </td>
                 </tr>
             )
         })
     }
 
-    useEffect(() => {
-        setInfo(getWorkPlacesJson)
-    }, [getWorkPlacesJson]);
-
     return(
         <div>
-            <Form />
-            <table className='table'>
+            <FormAddInfo />
+            <Table bordered>
                 <thead>
                     <tr>
                         <th>Prédio</th>
@@ -46,9 +54,9 @@ function Table(){
                 <tbody>
                     { createRowsTable() }
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 }
 
-export default Table;
+export default TableWorkPlace;
