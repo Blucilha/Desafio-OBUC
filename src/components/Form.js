@@ -24,7 +24,7 @@ function FormAddInfo(){
         e.preventDefault();
         const workPlaceSingle = {
             building: onSelect,
-            workPlace: onInput
+            workplace: onInput
         };
         setWorkPlaces([...workPlaces, workPlaceSingle]);
     }
