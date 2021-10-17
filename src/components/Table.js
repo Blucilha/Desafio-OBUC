@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import Table from 'react-bootstrap/Table'
+import './styles/Table.css';
+import { MdDelete, MdModeEdit, MdDone, MdCancel } from 'react-icons/md';
 import FormAddInfo from "./Form";
 import myContext from "../context/CreateContext";
 
@@ -58,18 +59,20 @@ function TableWorkPlace(){
             <tr key={index}>
             <td>{ element.building }</td>
             <td>{ element.workplace }</td>
-            <td>
+            <td className='place-btns'>
                 <button
+                    className='table-btns'
                     type='button'
                     onClick={ () => clickBtnEdit(index, element) }
                 >
-                    edit
+                    <MdModeEdit />
                 </button>
                 <button
+                    className='table-btns'
                     type='button'
                     onClick={ () => clickBtnDelete(index) }
                 >
-                    delete
+                    <MdDelete />
                 </button>
             </td>
         </tr>
@@ -99,18 +102,20 @@ function TableWorkPlace(){
                         defaultValue={ element.workplace }
                     />
                 </td>
-                <td>
+                <td className='place-btns'>
                     <button
+                        className='table-btns'
                         type='button'
                         onClick={ () => confirmEditBtn(index, arr) }
                     >
-                        OK
+                        <MdDone />
                     </button>
                     <button
+                        className='table-btns'
                         type='button'
                         onClick={ () => cancelEditBtn() }
                     >
-                        Cancel
+                        <MdCancel />
                     </button>
                 </td>
             </tr>
@@ -118,13 +123,6 @@ function TableWorkPlace(){
     }
 
     const createRowsTable = () => {
-        if(workPlaces.length === 0) {
-            return (
-                <tr>
-                    <td>Sem dados disponíveis</td> 
-                </tr>
-            )
-        }
         return workPlaces.map((element, index, arr) => {
             if(editInfo.bool && index === editInfo.number) {
                 return (
@@ -138,20 +136,23 @@ function TableWorkPlace(){
     }
 
     return(
-        <div>
-            <FormAddInfo />
-            <Table bordered>
-                <thead>
-                    <tr>
-                        <th>Prédio</th>
-                        <th>Local de Trabalho</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { createRowsTable() }
-                </tbody>
-            </Table>
+        <div className='container'>
+            <h3>Locais de Trabalho</h3>
+            <div className='table'>
+                <FormAddInfo />
+                <table id='table'>
+                    <thead>
+                        <tr>
+                            <th className='place-info'>Prédio</th>
+                            <th className='place-info'>Local de Trabalho</th>
+                            <th className='place-btns'></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { createRowsTable() }
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
