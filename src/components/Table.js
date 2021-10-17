@@ -96,6 +96,7 @@ function TableWorkPlace(){
                 </td>
                 <td>
                     <input
+                        className='input-edit'
                         name='input-edit'
                         type='text'
                         onChange={ onChangeEdit }

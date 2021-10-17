@@ -1,3 +1,43 @@
 #header {
-    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    color: white;
+    background-image: url('../../images/image-aux.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+#header h3 {
+    margin-left: 25px;
+}
+
+#header-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 25px;
+    width: 200px;
+}
+
+.link-header {
+    font-size: 50px;
+}
+
+.link-header:hover {
+    cursor: pointer;
+}
+
+.border {
+    border-bottom: 1px black solid;
+    margin: 0 5px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+#user-header {
+    padding: 0;
+    height: 30px;
 }
