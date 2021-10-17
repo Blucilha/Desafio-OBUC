@@ -15,6 +15,7 @@
     width: 100%;
     height: 100%;
     border: 1px black solid;
+    border-radius: 3px;
 }
 
 #table {
@@ -37,4 +38,9 @@ table td, table th {
 .table-btns {
     border: none;
     background: transparent;
+}
+
+.input-edit {
+    width: 220px;
+    height: 20px;
 }
