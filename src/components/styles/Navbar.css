@@ -1,0 +1,31 @@
+#nav-bar {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(3,39,89,1) 24%, rgba(0,82,255,1) 69%);
+}
+
+#nav-bar p {
+    padding: 15px 0;
+    margin-bottom: 5px;
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+#nav-bar a:hover {
+    background-color: rgba(67, 60, 151, 1);
+    color: #636363;
+}
+
+.link {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    background-color: rgba(12, 7, 82, 1);
+}
+

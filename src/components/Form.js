@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import myContext from "../context/CreateContext";
-import '../App.css';
+import './styles/Form.css';
 
 const RANGE_BUILDING = [1, 2, 3, 4];
 
@@ -22,6 +22,11 @@ function FormAddInfo(){
 
     const onButtonAdd = (e) => {
         e.preventDefault();
+        if(onInput === '' || onSelect === '') {
+            alert('Preencha todos os campos!');
+            return;
+        }
+
         const workPlaceSingle = {
             building: onSelect,
             workplace: onInput
@@ -72,6 +77,7 @@ function FormAddInfo(){
                 type='button'
                 onClick={ onButtonAdd }
             >
+                +
             </button>
         </form>
     )
