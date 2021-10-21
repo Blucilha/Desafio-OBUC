@@ -3,7 +3,6 @@ Este projeto foi desenvolvido com o intento de submetê-lo ao desafio técnico d
 
 ## Tecnologias utilizadas
 O projeto foi desenvolvido utilizando:
-- VS Code;
 - React JS;
 - react-icons;
 
